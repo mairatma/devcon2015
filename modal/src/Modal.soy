@@ -1,0 +1,49 @@
+{namespace Templates.Modal}
+
+/**
+ * This renders the main element.
+ * @param id
+ */
+{template .content}
+	<div id="{$id}" class="modal component">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				{call .header data="all" /}
+				{call .body data="all" /}
+				{call .footer data="all" /}
+			</div>
+		</div>
+	</div>
+{/template}
+
+/**
+ * @param id
+ * @param header
+ */
+{template .header}
+	<section id="{$id}-header" class="modal-header">
+		<h4>{$header}</h4>
+	</section>
+{/template}
+
+/**
+ * @param id
+ * @param body
+ */
+{template .body}
+	<section id="{$id}-body" class="modal-body">
+		{$body}
+	</section>
+{/template}
+
+/**
+ * @param id
+ * @param footerButtons
+ */
+{template .footer}
+	<section id="{$id}-footer" class="modal-footer">
+		{foreach $button in $footerButtons}
+			<button type="button" class="{$button.class}">{$button.label}</button>
+		{/foreach}
+	</section>
+{/template}

@@ -1,0 +1,23 @@
+{
+	"name": "devcon-modal",
+	"version": "0.0.0",
+	"description": "DevCon's Modal demo",
+	"main": "src/Modal.js",
+	"moduleType": [
+		"es6"
+	],
+	"keywords": [
+		"metal",
+		"devcon"
+	],
+	"ignore": [
+		"*",
+		"!src/**/*",
+		"!test/**/*"
+	],
+	"dependencies": {
+		"bootstrap": "~3.3.4",
+		"metal": "metal/metal.js#master",
+		"metal-jquery-adapter": "metal/metal-jquery-adapter#master"
+	}
+}
