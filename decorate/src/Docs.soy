@@ -127,5 +127,12 @@
 	      </p>
 	    </div>
 		</footer>
+		{call Templates.Tooltip.content}
+			{param id: $id + '-tooltip' /}
+			{param elementClasses: 'fade' /}
+			{param events: ['alignElementChanged': $id + ':updateTooltipContent_'] /}
+			{param selector: '.docs-article a' /}
+			{param visible: false /}
+		{/call}
 	</div>
 {/template}

@@ -3,6 +3,7 @@
 import dom from 'bower:metal/src/dom/dom';
 import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
 import SoyComponent from 'bower:metal/src/soy/SoyComponent';
+import Tooltip from 'bower:steel-tooltip/src/Tooltip';
 import './Docs.soy';
 
 class Docs extends SoyComponent {
@@ -14,6 +15,10 @@ class Docs extends SoyComponent {
 		}, 100);
 		event.preventDefault();
 		event.stopPropagation();
+	}
+
+	updateTooltipContent_(data, event) {
+		event.target.content = event.target.alignElement.getAttribute('href');
 	}
 }
 ComponentRegistry.register('Docs', Docs);
