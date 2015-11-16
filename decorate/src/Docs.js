@@ -1,12 +1,10 @@
 'use strict';
 
 import dom from 'bower:metal/src/dom/dom';
-import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
-import SoyComponent from 'bower:metal/src/soy/SoyComponent';
-import Tooltip from 'bower:steel-tooltip/src/Tooltip';
-import './Docs.soy';
+import DocsBase from './Docs.soy';
+import 'bower:steel-tooltip/src/Tooltip';
 
-class Docs extends SoyComponent {
+class Docs extends DocsBase {
 	handleTogglerClick_(event) {
 		var container = event.delegateTarget.parentNode.querySelector('.docs-article-content');
 		dom.toggleClasses(event.delegateTarget, 'icon-12-arrow-down-short icon-12-arrow-up-short');
@@ -21,6 +19,6 @@ class Docs extends SoyComponent {
 		event.target.content = event.target.alignElement.getAttribute('href');
 	}
 }
-ComponentRegistry.register('Docs', Docs);
+DocsBase.setImpl(Docs);
 
 export default Docs;

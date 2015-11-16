@@ -1,6 +1,10 @@
 /* jshint ignore:start */
+import Component from 'bower:metal/src/component/Component';
 import ComponentRegistry from 'bower:metal/src/component/ComponentRegistry';
-var Templates = ComponentRegistry.Templates;
+import SoyAop from 'bower:metal/src/soy/SoyAop';
+import SoyRenderer from 'bower:metal/src/soy/SoyRenderer';
+import SoyTemplates from 'bower:metal/src/soy/SoyTemplates';
+var Templates = SoyTemplates.get();
 // This file was automatically generated from Modal.soy.
 // Please don't edit this file by hand.
 
@@ -82,5 +86,14 @@ Templates.Modal.content.params = ["id"];
 Templates.Modal.header.params = ["id","header"];
 Templates.Modal.body.params = ["id","body"];
 Templates.Modal.footer.params = ["id","footerButtons"];
-export default Templates.Modal;
+
+class Modal extends Component {
+  static setImpl(ctor) {
+    ComponentRegistry.register(ctor, 'Modal');
+  }
+}
+Modal.RENDERER = SoyRenderer;
+Modal.setImpl(Modal);
+SoyAop.registerTemplates('Modal');
+export default Modal;
 /* jshint ignore:end */
